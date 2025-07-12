@@ -1,2 +1,57 @@
 * Project
+** ToDo/Requirements
 ** Process
+*** create readme (README.md)
+*** create project doc (project.org)
+*** language: python
+*** dev environment: github codespaces
+*** style/paradigm: functional
+** Potential Process Elements
+*** create readme
+*** create project doc
+*** decide on language(s), frameworks, style/paradigm
+*** create project directory structure
+*** gather requirements W(aterfall)1
+*** system analysis W2
+*** identify the system A(nalysis)1
+*** gather data A2
+*** model the system A3
+*** analyze and identify issues A4
+*** propose solutions A5
+*** implement changes A6
+*** test and monitor A7
+*** system design W3
+*** implementation W4
+*** testing W5
+*** operation (deployment) W6
+*** create prototype with ai assistance
+*** checklists
+*** check in to source control
+*** create commit message
+*** create templates/generators
+*** reuse decisions (code, libraries...)
+*** change requirement into ai prompt
+- prompt as requirement specification
+*** generate implementation from prompt
+*** agile standup meeting
+*** code review
+*** static analysis for code
+*** generate metrics for code
+*** create unit test then implement (red/green/refactor)
+*** create unit test after implementation (characterization tests)
+*** add comments
+*** refactor
+*** use design patterns
+*** pseudocode
+*** debugging
+**** debugging for program understanding
+*** program understanding (look into breaking this into elements)
+*** specify inputs and outputs(effects)
+*** identify processes (systems analysis)
+*** identify feedback loops (outputs affect inputs) (systems analysis)
+*** add to project and general index
+*** project blog
+*** project ai conversation
+*** <meta> while following Process
+- add/change steps as they are followed
+- look to potential process elements for potential steps
