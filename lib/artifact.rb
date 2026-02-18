@@ -12,12 +12,10 @@ end
 
 def default(input)
   case input
-  when String, Numeric
-    { result: input }
   when Hash
     if input.key?(:data) || input.key?('data')
       data_value = input[:data] || input['data']
-      { result: data_value }
+      { result: data_value }.merge( input )
     else
       { result: input }
     end

@@ -19,12 +19,12 @@ class TestDefault < Minitest::Test
 
   def test_with_hash_with_symbol_data_attribute
     input = { data: "important info", other: "value" }
-    assert_equal({ result: "important info" }, default(input))
+    assert_equal({ data: "important info", other: "value", result: "important info" }, default(input))
   end
 
   def test_with_hash_with_string_data_attribute
     input = { "data" => "string key data", other: "value" }
-    assert_equal({ result: "string key data" }, default(input))
+    assert_equal({ "data" => "string key data", other: "value", result: "string key data" }, default(input))
   end
 
   def test_with_nil
