@@ -2937,3 +2937,93 @@ Do not respond until I give the command: 'end of prompt:', or 'end:', or 'eop:'.
 <text>
 End of previous conversation.
 End of context.
+
+DeepSeek
+I want a ruby function and its test called default that:
+- takes a string, number or hash (with a data attribute)
+- returns a hash with a result attribute enclosing the input
+
+Here's a Ruby function and its test that meets your requirements:
+
+```ruby
+# default.rb
+def default(input)
+  case input
+  when String, Numeric
+    { result: input }
+  when Hash
+    if input.key?(:data) || input.key?('data')
+      data_value = input[:data] || input['data']
+      { result: data_value }
+    else
+      { result: input }
+    end
+  else
+    { result: input }
+  end
+end
+```
+
+And here's the corresponding test file:
+
+```ruby
+# test_default.rb
+require 'minitest/autorun'
+require_relative 'default'
+
+class TestDefault < Minitest::Test
+  def test_with_string
+    assert_equal({ result: "hello" }, default("hello"))
+  end
+
+  def test_with_number
+    assert_equal({ result: 42 }, default(42))
+    assert_equal({ result: 3.14 }, default(3.14))
+  end
+
+  def test_with_hash_without_data_attribute
+    input = { name: "John", age: 30 }
+    assert_equal({ result: input }, default(input))
+  end
+
+  def test_with_hash_with_symbol_data_attribute
+    input = { data: "important info", other: "value" }
+    assert_equal({ result: "important info" }, default(input))
+  end
+
+  def test_with_hash_with_string_data_attribute
+    input = { "data" => "string key data", other: "value" }
+    assert_equal({ result: "string key data" }, default(input))
+  end
+
+  def test_with_nil
+    assert_equal({ result: nil }, default(nil))
+  end
+
+  def test_with_array
+    assert_equal({ result: [1, 2, 3] }, default([1, 2, 3]))
+  end
+
+  def test_with_boolean
+    assert_equal({ result: true }, default(true))
+    assert_equal({ result: false }, default(false))
+  end
+end
+```
+
+To run the tests:
+
+```bash
+ruby test_default.rb
+```
+
+**How the function works:**
+
+1. **String/Numeric input**: Returns `{ result: input }` directly
+2. **Hash input**: 
+   - If the hash has a `:data` or `"data"` key, returns `{ result: data_value }`
+   - Otherwise, returns `{ result: input }` (the entire hash)
+3. **Any other type**: Returns `{ result: input }` as a fallback
+
+The function handles both symbol and string keys for the "data" attribute, making it flexible for different hash styles.
+
